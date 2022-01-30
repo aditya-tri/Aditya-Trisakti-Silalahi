@@ -1,9 +1,13 @@
 import React from "react";
+import { Info, Navbar, Search, User } from "../components";
 
 export default function Dashboard() {
   return (
     <main>
-      <h2>Dashboard Page</h2>
+      <Navbar />
+      <Search />
+      <Info />
+      <User />
     </main>
   );
 }
