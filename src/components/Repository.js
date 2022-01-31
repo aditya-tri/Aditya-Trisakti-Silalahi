@@ -51,7 +51,7 @@ const Wrapper = styled.article`
   }
   .repos {
     overflow: scroll;
-    height: 260px;
+    height: 300px;
     display: grid;
     grid-template-rows: repeat(auto-fill, minmax(45px, 1fr));
     gap: 1.25rem;

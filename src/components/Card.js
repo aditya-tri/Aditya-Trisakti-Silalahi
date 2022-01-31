@@ -79,8 +79,8 @@ const Wrapper = styled.article`
     column-gap: 1rem;
     margin-bottom: 1rem;
     img {
-      width: 100px;
-      height: 100px;
+      width: 75px;
+      height: 75px;
       border-radius: 50%;
     }
     h4 {
