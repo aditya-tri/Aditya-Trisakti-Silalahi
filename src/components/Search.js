@@ -5,6 +5,7 @@ import { MdSearch } from "react-icons/md";
 export default function Search() {
   const [user, setUser] = useState("");
   const handleSubmit = (e) => {
+    e.preventDefault();
     console.log(user);
   };
   return (
@@ -13,7 +14,13 @@ export default function Search() {
         <form onSubmit={handleSubmit}>
           <div className="form-control">
             <MdSearch />
-            <input type="text" placeholder="Enter Github User" />
+            <input
+              type="text"
+              placeholder="Enter Github User"
+              value={user}
+              onChange={(e) => setUser(e.target.value)}
+            />
+            <button type="submit">Search</button>
           </div>
         </form>
       </Wrapper>
