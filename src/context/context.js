@@ -17,6 +17,9 @@ const GithubProvider = ({ children }) => {
   const [requests, setRequests] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
+  // error
+  const [error, setError] = useState({ show: false, msg: "" });
+
   // check rate
   const checkRequests = () => {
     axios(`${githubAPI}/rate_limit`)
@@ -25,13 +28,22 @@ const GithubProvider = ({ children }) => {
           rate: { remaining },
         } = data;
         setRequests(remaining);
+        if (remaining === 0) {
+          toggleError(true, "Sorry, you have reached the API request limit");
+        }
       })
       .catch((err) => console.log(err));
   };
 
+  function toggleError(show, msg) {
+    setError({ show, msg });
+  }
+
   useEffect(checkRequests, []);
   return (
-    <GithubContext.Provider value={{ githubUser, repos, followers, requests }}>
+    <GithubContext.Provider
+      value={{ githubUser, repos, followers, requests, error }}
+    >
       {children}
     </GithubContext.Provider>
   );
