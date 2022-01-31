@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 export default function Navbar() {
-  return <Wrapper>navbar component</Wrapper>;
+  return <Wrapper>Github User Search APP</Wrapper>;
 }
 
 const Wrapper = styled.nav`
@@ -15,23 +15,4 @@ const Wrapper = styled.nav`
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
-  h4 {
-    margin-bottom: 0;
-    font-weight: 400;
-  }
-  img {
-    width: 35px !important;
-    height: 35px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  button {
-    background: transparent;
-    border: transparent;
-    font-size: 1.2rem;
-    text-transform: capitalize;
-    letter-spacing: var(--spacing);
-    color: var(--clr-grey-5);
-    cursor: pointer;
-  }
 `;
