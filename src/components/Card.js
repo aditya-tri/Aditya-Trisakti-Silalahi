@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { GithubContext } from "../context/context";
 import { MdBusiness, MdLink, MdLocationOn } from "react-icons/md";
+import { FaTwitter } from "react-icons/fa";
 
 export default function Card() {
   const { githubUser } = useContext(GithubContext);
@@ -13,6 +14,7 @@ export default function Card() {
     blog,
     bio,
     location,
+    login,
     twitter_username,
   } = githubUser;
   return (
@@ -21,14 +23,15 @@ export default function Card() {
         <img src={avatar_url} alt={name} />
         <div>
           <h4>{name}</h4>
-          <p className={twitter_username === null ? "hide" : "show"}>
-            @{twitter_username}
-          </p>
+          <p>{login}</p>
         </div>
         <a href={html_url}>Follow</a>
       </header>
       <p className="bio">{bio}</p>
       <div className="links">
+        <p>
+          <FaTwitter /> @{twitter_username}
+        </p>
         <p>
           <MdBusiness /> {company || "-"}
         </p>
