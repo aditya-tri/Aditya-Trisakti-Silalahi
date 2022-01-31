@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Card from "./Card";
-import Followers from "./Followers";
+import Repository from "./Repository";
 
 export default function User() {
   return (
     <Wrapper>
       <Card />
-      <Followers />
+      <Repository />
     </Wrapper>
   );
 }
@@ -19,5 +19,4 @@ const Wrapper = styled.div`
   @media (min-width: 992px) {
     grid-template-columns: 1fr 1fr;
   }
-  /* align-items: start; */
 `;
