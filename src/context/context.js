@@ -4,7 +4,7 @@ import mockUser from "./mockData/mockUser";
 import mockFollowers from "./mockData/mockFollowers";
 import axios from "axios";
 
-const githubUrl = "https://api.github.com";
+const githubAPI = "https://api.github.com";
 
 const GithubContext = React.createContext();
 
@@ -19,16 +19,19 @@ const GithubProvider = ({ children }) => {
 
   // check rate
   const checkRequests = () => {
-    axios(`${githubUrl}/rate_limit`)
-      .then((res) => {
-        console.log(res);
+    axios(`${githubAPI}/rate_limit`)
+      .then(({ data }) => {
+        let {
+          rate: { remaining },
+        } = data;
+        setRequests(remaining);
       })
       .catch((err) => console.log(err));
   };
 
   useEffect(checkRequests, []);
   return (
-    <GithubContext.Provider value={{ githubUser, repos, followers }}>
+    <GithubContext.Provider value={{ githubUser, repos, followers, requests }}>
       {children}
     </GithubContext.Provider>
   );
