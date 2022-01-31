@@ -30,6 +30,10 @@ const GithubProvider = ({ children }) => {
     console.log(response);
     if (response) {
       setGithubUser(response.data);
+      const { login } = response.data;
+      axios(`${githubAPI}/users/${login}/repos?per_page=100`).then((response) =>
+        setRepos(response.data)
+      );
     } else {
       toggleError(true, "There is no user with that username");
     }
