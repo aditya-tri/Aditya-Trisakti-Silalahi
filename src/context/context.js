@@ -25,7 +25,6 @@ const GithubProvider = ({ children }) => {
     const response = await axios(`${githubAPI}/users/${user}`).catch((err) =>
       console.log(err)
     );
-    console.log(response);
     if (response) {
       setGithubUser(response.data);
       const { login } = response.data;
