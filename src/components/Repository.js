@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { GithubContext } from "../context/context";
 import { format } from "timeago.js";
 
-export default function Followers() {
+export default function Repository() {
   const { repos } = useContext(GithubContext);
 
   return (
